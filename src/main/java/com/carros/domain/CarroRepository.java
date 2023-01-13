@@ -1,11 +1,10 @@
 package com.carros.domain;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public interface CarroRepository extends CrudRepository<Carro, Long>{
+import java.util.List;
 
-	Iterable<Carro> findByTipo(String tipo);
-	
+public interface CarroRepository extends JpaRepository<Carro, Long> {
+
+    List<Carro> findByTipo(String tipo);
 }
