@@ -1,9 +1,7 @@
 package com.carros.domain;
 
+import com.carros.domain.dto.exception.ObjectNotFoundException;
 import com.carros.domain.dto.CarroDTO;
-
-import org.hibernate.ObjectNotFoundException;
-//import com.carros.api.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -25,7 +23,7 @@ public class CarroService {
 
 	public CarroDTO getCarroById(Long id) {
 		Optional<Carro> carro = rep.findById(id);
-		return carro.map(CarroDTO::create).orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado", null));
+		return carro.map(CarroDTO::create).orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado"));
 	}
 
 	public List<CarroDTO> getCarrosByTipo(String tipo) {
@@ -41,14 +39,16 @@ public class CarroService {
 	public CarroDTO update(Carro carro, Long id) {
 		Assert.notNull(id, "Não foi possível atualizar o registro");
 
+		// Busca o carro no banco de dados
 		Optional<Carro> optional = rep.findById(id);
 		if (optional.isPresent()) {
 			Carro db = optional.get();
-
+			// Copiar as propriedades
 			db.setNome(carro.getNome());
 			db.setTipo(carro.getTipo());
 			System.out.println("Carro id " + db.getId());
 
+			// Atualiza o carro
 			rep.save(db);
 
 			return CarroDTO.create(db);

@@ -14,5 +14,10 @@ public class Carro {
 
 	private String tipo;
 	private String nome;
+	private String descricao;
+	private String url_foto;
+	private String url_video;
+	private String latitude;
+	private String longitude;
 
 }
