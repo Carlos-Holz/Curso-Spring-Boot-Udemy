@@ -1,4 +1,4 @@
-package com.carros.api;
+package com.carros;
 
 import com.carros.domain.Carro;
 import com.carros.domain.CarroService;
