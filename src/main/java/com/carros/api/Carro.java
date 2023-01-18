@@ -1,7 +1,6 @@
 package com.carros.api;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
