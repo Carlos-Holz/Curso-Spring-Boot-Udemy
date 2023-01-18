@@ -1,7 +1,8 @@
 package com.carros;
 
-import com.carros.domain.Carro;
-import com.carros.domain.dto.CarroDTO;
+import com.carros.api.Carro;
+import com.carros.api.CarroDTO;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
