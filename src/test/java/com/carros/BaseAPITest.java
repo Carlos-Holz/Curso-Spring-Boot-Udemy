@@ -10,7 +10,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
 import com.carros.api.infra.security.jwt.JwtUtil;
 
 import static junit.framework.TestCase.assertNotNull;
