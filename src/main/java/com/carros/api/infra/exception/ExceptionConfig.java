@@ -1,4 +1,4 @@
-package com.carros.api.exception;
+package com.carros.api.infra.exception;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -24,13 +24,5 @@ public class ExceptionConfig extends ResponseEntityExceptionHandler {
 	@ExceptionHandler({ AccessDeniedException.class })
 	public ResponseEntity accessDenied() {
 		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new Error("Acesso negado"));
-	}
-}
-
-class Error {
-	public String error;
-
-	public Error(String error) {
-		this.error = error;
 	}
 }
